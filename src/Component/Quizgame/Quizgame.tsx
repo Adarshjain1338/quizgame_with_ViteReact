@@ -27,7 +27,7 @@ export default function Quizgame(props: any) {
       <div className="d-flex row mx-0">
         
         {categories.map((category: category, index: number) => {
-          if(props.search?.length === 0){
+          if(props.search.length === 0){
             return (
               <div className="col-sm-4" key={index}>
                 <div className="card cardeffect   shadow-lg"  style={{display: 'flex', justifyContent: 'center'}}>
@@ -61,7 +61,7 @@ export default function Quizgame(props: any) {
               </div>
             );
           }
-         else if(category.name?.toLowerCase().includes(props.search?.toLowerCase()) ){
+         else if(category.name.toLowerCase().includes(props.search.toLowerCase()) ){
           return (
             <div className="col-sm-4" key={index}>
               <div className="card cardeffect  shadow-lg" style={{display: 'flex', justifyContent: 'center'}}>
