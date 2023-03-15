@@ -7,9 +7,11 @@ import QuizQues from "./Component/Quizgame/QuizQues";
 import "react-toastify/dist/ReactToastify.css";
 import Signup from "./Component/SignUp/Signup";
 import CreateQuiz from "./Component/CreateQuiz/CreateQuiz";
+import QuizCategoryType from "./Component/Quizgame/QuizCategoryType";
 
 function App() {
   const [NameQuiz, setNameQuiz] = useState<string>("");
+  const [quizCategoryType, setQuizCategoryType] = useState<string>('');
   const [search, setSearch] = useState("");
 
   return (
@@ -26,10 +28,14 @@ function App() {
                 <QuizQues NameQuiz={NameQuiz} setNameQuiz={setNameQuiz} />
               }
             />
+            <Route index  element = {<QuizCategoryType  setQuizCategoryType = {setQuizCategoryType}/>}/>
             <Route
-              index
+              
+              path = 'QuizCategory'
               element={
                 <Quizgame
+                  setQuizCategoryType = {setQuizCategoryType}
+                  quizCategoryType = {quizCategoryType}
                   setNameQuiz={setNameQuiz}
                   QuizCategoryList="Quiz Category"
                   search = {search}
