@@ -1,6 +1,6 @@
 import QuestionObject from "../../../Model/Question";
 
-export const question: QuestionObject[] = [
+export const questions: QuestionObject[] = [
   {
     id: 0,
     Category: "React",
@@ -86,10 +86,10 @@ export const question: QuestionObject[] = [
     id: 9,
     Category: "Communication",
     Technical: false,
-    Question: "What is the capital of yes?",
+    Question: "What is the capital of Spain?",
     questionType: "multipleAnswer",
-    Options: ["Venice", "Rome", "Florence"],
-    CorrectAnswer: [1,2]  
+    Options: ["Madrid", "Barcelona", "Seville"],
+    CorrectAnswer: [1,2] 
   }
 
 

@@ -4,9 +4,10 @@ import { Link, useNavigate } from "react-router-dom";
 export default function QuizCategoryType(props: any) {
   const navigate = useNavigate();
 
-  function navigator() {
-    navigate("QuizCategory");
-  }
+
+//   function handleQuizCategoryType(){
+//     props.setQuizCategoryType(true)
+//   } 
 
   return (
     <>
@@ -20,7 +21,7 @@ export default function QuizCategoryType(props: any) {
                 Some quick example text to build on the card title and make up
                 the bulk of the card's content.
               </p>
-              <Link to="#" className="card-link border shadow p-2 rounded text-bg-primary">
+              <Link to="QuizCategory" className="card-link border shadow p-2 rounded text-bg-primary" onClick={()=>props.setQuizCategoryType(true)}>
                 Procced
               </Link>
             </div>
@@ -34,7 +35,7 @@ export default function QuizCategoryType(props: any) {
                 Some quick example text to build on the card title and make up
                 the bulk of the card's content.
               </p>
-              <Link to="#" className="card-link border shadow p-2  rounded text-bg-primary">
+              <Link to="QuizCategory" className="card-link border shadow p-2  rounded text-bg-primary "  onClick={()=>props.setQuizCategoryType(false)}>
               Procced
               </Link>
             </div>

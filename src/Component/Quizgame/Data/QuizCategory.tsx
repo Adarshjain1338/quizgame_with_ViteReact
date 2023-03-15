@@ -2,6 +2,9 @@ import category from "../../../Model/Category";
 import reactImg from '../../../Assests/Image/react.png';
 import javaImg from '../../../Assests/Image/java.png';
 import angularImg from '../../../Assests/Image/angular.png';
+import communicationImg from '../../../Assests/Image/communication.jpg';
+import generalKnownledgeImg from '../../../Assests/Image/gk.jfif';
+import synoverge from '../../../Assests/Image/synoverge.png';
 
 export const categories: category[] =[
     {
@@ -28,22 +31,22 @@ export const categories: category[] =[
     {
         Id: 4,
         Technical: false,
-        name: "Reactq",
+        name: "Communication",
         description: "lorem ipsum dolor sit amet, consectetur adip inc lorem ipsum dolor sit amet, consectetur adip inc",
-        image: reactImg
+        image: communicationImg
     },
     {
         Id: 5,
         Technical: false,
-        name: "Javaq",
+        name: "General Knowledge",
         description: "lorem ipsum dolor sit amet, consectetur adip inc lorem ipsum dolor sit amet, consectetur adip inc",
-        image: javaImg
+        image: generalKnownledgeImg
     },
     {
         Id: 6,
         Technical: false,
-        name: "Angularq",
+        name: "Synoverge Quiz",
         description: "lorem ipsum dolor sit amet, consectetur adip inc lorem ipsum dolor sit amet, consectetur adip inc",
-        image: angularImg
+        image: synoverge
     }
 ]

@@ -14,9 +14,11 @@ export default function Quizgame(props: any) {
     localStorage.setItem('Category', params);
   }
   console.log(props.search)
+  
 
   return (
     <>
+    
       <div className="h1">{props.QuizCategoryList}</div>
 
       <div className="d-flex w-50 m-3">
@@ -27,9 +29,12 @@ export default function Quizgame(props: any) {
       <div className="d-flex row mx-0">
         
         {categories.map((category: category, index: number) => {
+          if(props.quizCategoryType === category.Technical){
+            
+          
           if(props.search.length === 0){
             return (
-              <div className="col-sm-4" key={index}>
+              <div className="col-sm-4 mb-3" key={index}>
                 <div className="card cardeffect   shadow-lg"  style={{display: 'flex', justifyContent: 'center'}}>
                   <div className="" >
                     <img
@@ -95,7 +100,7 @@ export default function Quizgame(props: any) {
             </div>
           );
          }
-      
+        }
         })}
       </div>
     </>

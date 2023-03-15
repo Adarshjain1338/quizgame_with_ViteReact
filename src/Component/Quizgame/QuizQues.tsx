@@ -1,14 +1,19 @@
-import jsPDF from "jspdf";
-import React, { useState, useContext, useEffect } from "react";
+
+import { useState, useEffect } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import QuestionObject from "../../Model/Question";
 import BackButton from "../buttons/BackButton";
-import { question } from "./Data/QuizquesData";
+import { questions } from "./Data/QuizquesData";
 
 export default function QuizQues(props: any) {
   const [Body, setBody] = useState(<></>);
   const [hidden, sethidden] = useState(true);
-  const { register, handleSubmit , formState: { errors }} = useForm();
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
 
   const onSubmit: SubmitHandler<any> = (data) => {
     let cfrm = window.confirm("are you sure you want to submit ?");
@@ -50,16 +55,14 @@ export default function QuizQues(props: any) {
   //     }
   //   }
   // };
-  
-  
-    let selCategory = localStorage.getItem('Category');
+
+  let selCategory = localStorage.getItem("Category");
   useEffect(() => {
-    if(selCategory){
+    if (selCategory) {
       props.setNameQuiz(selCategory);
     }
   }, []);
 
-  
   return (
     <>
       <div className="container ques-background rounded w-75">
@@ -72,11 +75,8 @@ export default function QuizQues(props: any) {
               {props.NameQuiz}
             </div>
 
-            {question.map((question: QuestionObject, index: any) => {
-              
-              
-              
-              if(props.NameQuiz === question.Category){
+            {questions.map((question: QuestionObject, index: any) => {
+              if (props.NameQuiz === question.Category) {
                 quesSrNo++;
                 return (
                   <div
@@ -113,17 +113,19 @@ export default function QuizQues(props: any) {
                                   {/* {errors.name?.type ==='required'&&(
                                     <small id="small" className="form-text text-danger">Please Select your Option</small>
                                   )} */}
-                                  <label htmlFor={option} className='w-75 '>{option}</label>
-                                  
-                              
+                                  <label htmlFor={option} className="w-75 ">
+                                    {option}
+                                  </label>
                                 </li>
-                                
                               );
                             }
                             if (question.questionType == "multipleAnswer") {
                               const name: any = question.id.toString();
                               return (
-                                <li className="list-group-item  li-effect h6" key={index}>
+                                <li
+                                  className="list-group-item  li-effect h6"
+                                  key={index}
+                                >
                                   <input
                                     className="m-2"
                                     type="checkbox"
@@ -132,7 +134,9 @@ export default function QuizQues(props: any) {
                                     value={option}
                                     {...register(name, { required: false })}
                                   />
-                                  <label htmlFor={option} className='w-75 '>{option}</label>
+                                  <label htmlFor={option} className="w-75 ">
+                                    {option}
+                                  </label>
                                 </li>
                               );
                             }
@@ -141,60 +145,32 @@ export default function QuizQues(props: any) {
                       </div>
                     </div>
                   </div>
-                ); 
-            }})}
+                );
+              }
+            })}
             <button
               className="btn btn-outline-danger mt-2 mb-2 w-25"
               type="submit"
             >
               Submit
             </button>
-            <div className="d-flex justify-content-center"><BackButton/></div>
+            <div className="d-flex justify-content-center">
+              <BackButton />
+            </div>
           </form>
         )}
         {Body}
       </div>
-      
     </>
   );
 }
 
 export function QuizAns(props: any) {
   let userData = JSON.parse(localStorage.getItem("form-data") as string);
-  localStorage.removeItem('Category')
+  localStorage.removeItem("Category");
   let count: number = 0;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  let AnsJson = question
+  let AnsJson = questions
     .filter((e) => {
       return e.Category == props.NameQuiz;
     })
@@ -220,7 +196,7 @@ export function QuizAns(props: any) {
   let multival: string[] = [];
 
   let quesAnsArray: any = [];
-  question.map((question) => {
+  questions.map((question) => {
     if (props.NameQuiz === question.Category) {
       question.CorrectAnswer.map((ans) => {
         if (question.questionType === "multipleAnswer") {
@@ -237,20 +213,14 @@ export function QuizAns(props: any) {
     }
   });
 
-
-
   Object.values(userData).map((element: any, index: any) => {
-
     if (Array.isArray(element) && Array.isArray(quesAnsArray[index])) {
-      if(quesAnsArray[index].join()==element.join()){
+      if (quesAnsArray[index].join() == element.join()) {
         count++;
       }
-  
-   
     } else {
       if (element == quesAnsArray[index]) {
         count++;
-        
       }
     }
   });
@@ -258,20 +228,20 @@ export function QuizAns(props: any) {
   return (
     <>
       <div className="m-2 p-2 ">
-        <div id="title" className="h2 text-uppercase w-100 text-bg-danger rounded  d-flex justify-content-between">
+        <div
+          id="title"
+          className="h2 text-uppercase w-100 text-bg-danger rounded  d-flex justify-content-between"
+        >
           <div className="text-center mx-3">
-
-          {props.NameQuiz} <span> Quiz Answer</span>
+            {props.NameQuiz} <span> Quiz Answer</span>
           </div>
-          
+
           <div className="text-bg-warning rounded  px-2">
-              Your Score: <span >{count}</span>
+            Your Score: <span>{count}</span>
           </div>
         </div>
-        
-        
-        
-        {question.map((question: QuestionObject, index: any) => {
+
+        {questions.map((question: QuestionObject, index: any) => {
           if (props.NameQuiz === question.Category) {
             return (
               <div
@@ -343,12 +313,14 @@ export function QuizAns(props: any) {
         })}
 
         <div>
-          <button className="btn btn-success w-25 mt-2 mb-2 btn-lg" onClick={exportData}>
+          <button
+            className="btn btn-success w-25 mt-2 mb-2 btn-lg"
+            onClick={exportData}
+          >
             Download Result
           </button>
           <div className="m-2">
-
-          <BackButton/>
+            <BackButton />
           </div>
         </div>
       </div>

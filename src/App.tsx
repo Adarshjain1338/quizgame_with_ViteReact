@@ -11,7 +11,7 @@ import QuizCategoryType from "./Component/Quizgame/QuizCategoryType";
 
 function App() {
   const [NameQuiz, setNameQuiz] = useState<string>("");
-  const [quizCategoryType, setQuizCategoryType] = useState<string>('');
+  const [quizCategoryType, setQuizCategoryType] = useState<boolean>(false);
   const [search, setSearch] = useState("");
 
   return (
