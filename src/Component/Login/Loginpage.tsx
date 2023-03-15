@@ -41,7 +41,7 @@ export default function Loginpage(props: any) {
     const UserData: any = JSON.parse(localStorage.getItem(data.email)!);
     console.log(UserData, 'local storage data of userData')
     if (UserData === null) {
-      toast.error("No Login Data Found");
+      toast.error("Email Doesn't Exists");
     } else if (data.password !== UserData.password) {
       toast.warning("Wrong Password")
     } else {
@@ -85,7 +85,7 @@ export default function Loginpage(props: any) {
                     className="fw-normal mb-3"
                     style={{ letterSpacing: "1px" }}
                   >
-                    Log in
+                    Sign-In
                   </h3>
 
                   <div className="form-outline mb-4 px-2">
@@ -130,8 +130,7 @@ export default function Loginpage(props: any) {
                       autoComplete=""
                       placeholder="********"
                       {...register("password", {
-                        required: true,
-                        pattern: /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{8,}$/,
+                        required: true
                       })}
                     />
                     {errors.password?.type === "required" && (

@@ -10,6 +10,7 @@ import CreateQuiz from "./Component/CreateQuiz/CreateQuiz";
 
 function App() {
   const [NameQuiz, setNameQuiz] = useState<string>("");
+  const [search, setSearch] = useState("");
 
   return (
     <div className="App ">
@@ -31,6 +32,8 @@ function App() {
                 <Quizgame
                   setNameQuiz={setNameQuiz}
                   QuizCategoryList="Quiz Category"
+                  search = {search}
+                  setSearch = {setSearch}
                 />
               }
             />

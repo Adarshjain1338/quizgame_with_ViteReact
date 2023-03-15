@@ -4,6 +4,7 @@ export const question: QuestionObject[] = [
   {
     id: 0,
     Category: "React",
+    Technical: true,
     Question: "What is the correct command to create a new React project?",
     questionType: "singleAnswer",
     Options: ["npx create-react-app", "npm create-react-app myReactApp", "npx create-react-app myReactApp"],
@@ -12,6 +13,7 @@ export const question: QuestionObject[] = [
   {
     id: 1,
     Category: "Java",
+    Technical: true,
     Question: "What is the capital of Spain?",
     questionType: "singleAnswer",
     Options: ["java1", "ajav2", "vaja3"],
@@ -20,6 +22,7 @@ export const question: QuestionObject[] = [
   {
     id: 2,
     Category: "React",
+    Technical: true,
     Question: "What command is used to start the React local development server?",
     questionType: "singleAnswer",
     Options: ["npm build", "npm start", "npm serve"],
@@ -28,6 +31,7 @@ export const question: QuestionObject[] = [
   {
     id: 3,
     Category: "React",
+    Technical: true,
     Question: "What command is used to start the React local development server?",
     questionType: "singleAnswer",
     Options: ["npm build ", "start", "serve"],
@@ -36,6 +40,7 @@ export const question: QuestionObject[] = [
   {
     id: 4,
     Category: "Angular",
+    Technical: true,
     Question: "What is the capital of Italy?",
     questionType: "singleAnswer",
     Options: ["Venice", "Rome", "Florence"],
@@ -44,6 +49,7 @@ export const question: QuestionObject[] = [
   {
     id: 5,
     Category: "Java",
+    Technical: true,
     Question: "What is the capital of Spain?",
     questionType: "multipleAnswer",
     Options: ["Madrid", "Barcelona", "Seville"],
@@ -52,6 +58,7 @@ export const question: QuestionObject[] = [
   {
     id: 6,
     Category: "React",
+    Technical: true,
     Question: "What is the default local host port that a React development server uses?",
     questionType: "singleAnswer",
     Options: [3000, 3500, 2456],
@@ -60,6 +67,7 @@ export const question: QuestionObject[] = [
   {
     id: 7,
     Category: "Angular",
+    Technical: true,
     Question: "What is the capital of yes?",
     questionType: "singleAnswer",
     Options: ["Venice", "Rome", "Florence"],
@@ -68,11 +76,22 @@ export const question: QuestionObject[] = [
   {
     id: 8,
     Category: "Java",
+    Technical: true,
+    Question: "What is the capital of yes?",
+    questionType: "multipleAnswer",
+    Options: ["Venice", "Rome", "Florence"],
+    CorrectAnswer: [1,2]  
+  },
+  {
+    id: 9,
+    Category: "Communication",
+    Technical: false,
     Question: "What is the capital of yes?",
     questionType: "multipleAnswer",
     Options: ["Venice", "Rome", "Florence"],
     CorrectAnswer: [1,2]  
   }
+
 
   
 ];

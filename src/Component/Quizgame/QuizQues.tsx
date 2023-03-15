@@ -2,6 +2,7 @@ import jsPDF from "jspdf";
 import React, { useState, useContext, useEffect } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import QuestionObject from "../../Model/Question";
+import BackButton from "../buttons/BackButton";
 import { question } from "./Data/QuizquesData";
 
 export default function QuizQues(props: any) {
@@ -109,6 +110,9 @@ export default function QuizQues(props: any) {
                                     // name = {question.id.toString()}
                                     {...register(name, { required: true })}
                                   />
+                                  {/* {errors.name?.type ==='required'&&(
+                                    <small id="small" className="form-text text-danger">Please Select your Option</small>
+                                  )} */}
                                   <label htmlFor={option} className='w-75 '>{option}</label>
                                   
                               
@@ -145,10 +149,12 @@ export default function QuizQues(props: any) {
             >
               Submit
             </button>
+            <div className="d-flex justify-content-center"><BackButton/></div>
           </form>
         )}
         {Body}
       </div>
+      
     </>
   );
 }
@@ -338,9 +344,12 @@ export function QuizAns(props: any) {
 
         <div>
           <button className="btn btn-success w-25 mt-2 mb-2 btn-lg" onClick={exportData}>
-            
             Download Result
           </button>
+          <div className="m-2">
+
+          <BackButton/>
+          </div>
         </div>
       </div>
     </>

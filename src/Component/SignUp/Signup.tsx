@@ -2,6 +2,7 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import { Navigate, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import BackButton from "../buttons/BackButton";
 
 export default function Signup() {
   const navigate = useNavigate();
@@ -132,7 +133,7 @@ export default function Signup() {
             </small>
           )}
         </div>
-        {/* <div className="form-group">
+        <div className="form-group">
           <label className="h6" htmlFor="select state">
             Select Your State <span className="text-danger">*</span>
           </label>
@@ -146,7 +147,7 @@ export default function Signup() {
             <option value="CG">CG</option>
             <option value="Goa">Goa</option>
           </select>
-        </div> */}
+        </div>
         {errors.state?.type === "required" && (
           <small id="Small" className="form-text text-danger">
             Please Select Your State
@@ -222,9 +223,13 @@ export default function Signup() {
 
         <div className="form-check d-flex justify-content-center">
           <button className="btn btn-outline-primary shadow w-25 mt-2" type="submit">
-            {" "}
+            
             Submit
           </button>
+          
+        </div>
+        <div className="form-check d-flex justify-content-center m-3">
+          <BackButton/> 
         </div>
       </form>
     </div>
